@@ -1,0 +1,100 @@
+.TickerModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+
+  &__card {
+    background-color: whitesmoke;
+    width: 450px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #735f32;
+    color: #fff;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    &__close {
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-size: 24px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-logo {
+      height: 100px;
+      width: 100px;
+      object-fit: contain;
+    }
+  }
+
+  &__body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+
+    &-data {
+      font-weight: bold;
+      
+      &.data-up {
+        color: rgb(14, 201, 14);
+      }
+
+      &.data-down {
+        color: red;
+      }
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15px;
+    width: 15px;
+    border: none;
+    background: url('../../images/circle-xmark-regular.svg') no-repeat 50% 50%;
+    background-size: contain;
+    transition-duration: 0.3s;
+
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+}

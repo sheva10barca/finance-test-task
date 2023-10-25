@@ -1,0 +1,25 @@
+.header {
+  background-color: #000000;
+  display: flex;
+  align-items: center;
+  height: 70px;
+  gap: 30px;
+  padding-left: 40px;
+
+  &__title {
+    color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__logo {
+    height: 80px;
+    width: 80px;
+    object-fit: contain;
+  }
+}

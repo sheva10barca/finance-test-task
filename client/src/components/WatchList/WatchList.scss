@@ -1,0 +1,25 @@
+.WatchList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+
+  &__list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__title {
+    color: #c69749;
+    font-size: 36px;
+  }
+
+  &__empty {
+    margin-top: 20px;
+    color: whitesmoke;
+    font-size: 22px;
+  }
+}

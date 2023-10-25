@@ -1,0 +1,62 @@
+.TickersList {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__search {
+    font-size: 16px;
+    display: block;
+    padding: 10px 20px;
+    width: 350px;
+    height: 40px;
+    background: none;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    box-shadow: 0 0 3px #735f32, 0 0 8px #735f32;
+    color: whitesmoke;
+
+    &::placeholder {
+      color: #735f32;
+    }
+
+    &:focus {
+      box-shadow: 0 0 3px #c69749, 0 0 8px #c69749;
+    }
+
+    &::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      background: url('../../images/circle-xmark-regular.svg') no-repeat 50% 50%;
+      background-size: contain;
+      transition-duration: 0.3s;
+
+      &:hover {
+        transform: scale(120%);
+      }
+    }
+  }
+
+  &__title {
+    margin-top: 15px;
+    color: #c69749;
+    font-size: 50px;
+  }
+
+  &__list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__empty {
+    margin-top: 20px;
+    color: whitesmoke;
+    font-size: 24px;
+  }
+}
