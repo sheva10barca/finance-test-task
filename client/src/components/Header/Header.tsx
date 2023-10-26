@@ -3,7 +3,7 @@ import React from 'react';
 import INCODE_LOGO from '../../images/logos/incode.svg';
 import './Header.scss';
 
-export const Header = () => {
+export const Header: React.FC = () => {
   return (
     <header className="header">
       <a

@@ -1,34 +1,35 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import {
   addToWatchlist,
   removeFromWatchlist,
-} from '../../features/tickerSlice.js';
-import { TickerItem } from '../TickerItem/TickerItem.js';
-import { normalizedName } from '../../utils/normalizedName.js';
+} from '../../features/tickerSlice';
+import { TickerItem } from '../TickerItem/TickerItem';
+import { normalizedName } from '../../utils/normalizedName';
+import { Ticker } from '../../types/Ticker';
 
 import './TickersList.scss';
 
-export const TickersList = () => {
-  const tickers = useSelector((state) => state.ticker.tickers);
-  const dispatch = useDispatch();
+export const TickersList: React.FC = () => {
+  const tickers = useAppSelector((state) => state.ticker.tickers);
+  const dispatch = useAppDispatch();
   const [query, setQuery] = useState('');
 
-  const addToWatchlistHandler = (ticker) => {
+  const addToWatchlistHandler = (ticker: Ticker) => {
     dispatch(addToWatchlist(ticker));
   };
 
-  const removeFromWatchlistHandler = (ticker) => {
+  const removeFromWatchlistHandler = (ticker: Ticker) => {
     dispatch(removeFromWatchlist(ticker));
   };
 
-  const handleQuery = (value) => {
+  const handleQuery = (value: string) => {
     const normalizedQuery = value.trim().toLowerCase();
     setQuery(normalizedQuery);
   };
 
-  const getPreparedTickers = (tickers, query) => {
+  const getPreparedTickers = (tickers: Ticker[], query: string) => {
     if (!query) {
       return tickers;
     }
@@ -53,10 +54,10 @@ export const TickersList = () => {
       />
       {visibleTickers.length ? (
         <ul className="TickersList__list">
-          {visibleTickers.map((ticker) => (
-            <li key={ticker.ticker}>
+          {visibleTickers.map((tickerItem) => (
+            <li key={tickerItem.ticker}>
               <TickerItem
-                ticker={ticker}
+                tickerItem={tickerItem}
                 addToWatchlistHandler={addToWatchlistHandler}
                 removeFromWatchlistHandler={removeFromWatchlistHandler}
               />

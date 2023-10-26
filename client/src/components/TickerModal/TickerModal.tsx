@@ -1,17 +1,30 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import classnames from 'classnames';
 
+import { useAppDispatch } from '../../app/hooks';
 import { removeCurrentTicker } from '../../features/tickerSlice';
 import { normalizedName } from '../../utils/normalizedName';
 import { normalizedDate } from '../../utils/normalizedDate';
 import { getLogo } from '../../utils/getLogo';
+import { Ticker } from '../../types/Ticker';
 
 import './TickerModal.scss';
 
-export const TickerModal = () => {
-  const currentTicker = useSelector((state) => state.ticker.currentTicker);
-  const dispatch = useDispatch();
+type Props = {
+  currentTicker: Ticker;
+};
+
+export const TickerModal: React.FC<Props> = ({ currentTicker }) => {
+  const dispatch = useAppDispatch();
+
+  const { 
+    ticker, 
+    change,
+    price,
+    dividend,
+    last_trade_time,
+    change_percent,
+   } = currentTicker;
 
   const handleCloseModal = () => {
     dispatch(removeCurrentTicker());
@@ -21,9 +34,7 @@ export const TickerModal = () => {
     <div className="TickerModal">
       <div className="TickerModal__card">
         <header className="TickerModal__head">
-          <div className="TickerModal__title">
-            {normalizedName(currentTicker.ticker)}
-          </div>
+          <div className="TickerModal__title">{normalizedName(ticker)}</div>
 
           <button
             type="button"
@@ -36,7 +47,7 @@ export const TickerModal = () => {
           <div className="TickerModal__company">
             <img
               className="TickerModal__company-logo"
-              src={getLogo(currentTicker.ticker)}
+              src={getLogo(ticker)}
               alt="company logo"
             />
           </div>
@@ -45,30 +56,26 @@ export const TickerModal = () => {
             <div className="TickerModal__row-name">Price:</div>
             <div
               className={classnames('TickerModal__row-data', {
-                'data-up': currentTicker.change > currentTicker.price,
-                'data-down': currentTicker.change < currentTicker.price,
+                'data-up': change > price,
+                'data-down': change < price,
               })}
             >
-              {currentTicker.price}
+              {price}
             </div>
           </div>
           <div className="TickerModal__row">
             <div className="TickerModal__row-name">Dividend:</div>
-            <div className="TickerModal__row-data">
-              {currentTicker.dividend}
-            </div>
+            <div className="TickerModal__row-data">{dividend}</div>
           </div>
           <div className="TickerModal__row">
             <div className="TickerModal__row-name">Last trade time:</div>
             <div className="TickerModal__row-data">
-              {normalizedDate(currentTicker.last_trade_time)}
+              {normalizedDate(last_trade_time)}
             </div>
           </div>
           <div className="TickerModal__row">
             <div className="TickerModal__row-name">Change percent:</div>
-            <div className="TickerModal__row-data">
-              {currentTicker.change_percent}
-            </div>
+            <div className="TickerModal__row-data">{change_percent}</div>
           </div>
         </div>
       </div>
