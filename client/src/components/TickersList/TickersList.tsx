@@ -6,8 +6,8 @@ import {
   removeFromWatchlist,
 } from '../../features/tickerSlice';
 import { TickerItem } from '../TickerItem/TickerItem';
-import { normalizedName } from '../../utils/normalizedName';
 import { Ticker } from '../../types/Ticker';
+import { getPreparedTickers } from '../../utils/getPreparedTickers';
 
 import './TickersList.scss';
 
@@ -27,18 +27,6 @@ export const TickersList: React.FC = () => {
   const handleQuery = (value: string) => {
     const normalizedQuery = value.trim().toLowerCase();
     setQuery(normalizedQuery);
-  };
-
-  const getPreparedTickers = (tickers: Ticker[], query: string) => {
-    if (!query) {
-      return tickers;
-    }
-
-    return tickers.filter((ticker) => {
-      const name = normalizedName(ticker.ticker).toLowerCase();
-
-      return name.includes(query);
-    });
   };
 
   const visibleTickers = getPreparedTickers(tickers, query);

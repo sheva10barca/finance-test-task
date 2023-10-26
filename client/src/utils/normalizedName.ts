@@ -15,6 +15,6 @@ export const normalizedName = (name: string) => {
     case TickerNames.TESLA:
       return 'Tesla';
     default:
-      return 'Incode Group';
+      return name;
   }
 };
