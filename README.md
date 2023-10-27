@@ -1,38 +1,5 @@
 
-# React Test Task
-
-## Requirements
-
-We need you to implement a solution to display price tickers data on the UI in realtime.
-
-Price data is available from a locally running service (see information below). Any additional visualisations to indicate how prices have changed would be a plus. Testing is also an important part to this exercise.
-
-Requirements:
-- application should connect to the locally running service
-- application should render price changes for some tickers in real time
-
-You can get some ideas how your application may look like on the [Google Finance](https://www.google.com/finance/) page.
-
-As a bonus you can implement (please describe implemented bonus functionality in this file):
-- any additional visual effects to highlight positive or negative changes in the prices
-- the possibility to switch on/off tickers by user
-- the possibility to specify interval time by user
-- the possibility to add/remove ticker from watching group
-- any additional functionality you consider useful
-
-You should use the next technologies:
-- React (preferable with hooks)
-- Redux (with Redux-Thunk or any other Redux middleware you are familiar) or any other state-manager library you want
-- Socket.io - to connect to the service
-- any UI library you want, or you can use just pure CSS
-- Testing Library
-
-We will assess the next parts:
-- workability: how your application works
-- projects structure: how you structure your files
-- code quality: how you write clean, readable code (feel free to install and use ESLint and Prettier)
-- knowledge React and its ecosystem: how you compose and use libraries together
-- testing: how you can test your code
+# Finance Test Task
 
 ## Running the local service
 1. Open a new bash shell
@@ -46,6 +13,7 @@ We will assess the next parts:
 2. ```cd client```
 3. ```npm install``` or ```yarn install```
 4. ```npm run start``` or ```yarn start```
+5. Node version should be 16 or you can use ```"start": "react-scripts --openssl-legacy-provider start"```
 
 ## Run the tests
 1. Open a new bash shell
@@ -87,10 +55,3 @@ The tickers we use:
 - **AMZN** - Amazon
 - **FB** - Facebook
 - **TSLA** - Tesla
-
-## How to complete the task
-1. Clone or fork this repository
-2. Modify content of the folder `client`
-3. Modify content of the folder `server` - if you want to complete bonus tasks
-4. Commit and push your code to your repository
-5. Send us link to your repository
