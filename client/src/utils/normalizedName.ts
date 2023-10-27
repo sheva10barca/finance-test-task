@@ -5,7 +5,7 @@ export const normalizedName = (name: string) => {
     case TickerNames.APPLE:
       return 'Apple';
     case TickerNames.ALPHABET:
-      return 'Alphabet';
+      return 'Google Alphabet';
     case TickerNames.MICROSOFT:
       return 'Microsoft';
     case TickerNames.AMAZON:

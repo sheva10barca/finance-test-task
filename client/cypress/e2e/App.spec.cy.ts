@@ -66,4 +66,52 @@ describe('App', () => {
         .should('contain.text', searchQuery);
     });
   });
+
+  it('should sort tickers by name in ascending order', () => {
+    cy.get('.TickersList__sort-button:contains("Name")').click();
+
+    const tickerNames = [];
+
+    cy.get('.TickerItem__name').each(($name) => {
+      tickerNames.push($name.text());
+    });
+
+    expect(tickerNames).to.deep.equal(tickerNames.sort());
+  });
+
+  it('should sort tickers by name in descending order', () => {
+    cy.get('.TickersList__sort-button:contains("Name")').click().click();
+
+    const tickerNames = [];
+
+    cy.get('.TickerItem__name').each(($name) => {
+      tickerNames.push($name.text());
+    });
+
+    expect(tickerNames).to.deep.equal(tickerNames.sort().reverse());
+  });
+
+  it('should sort tickers by price in ascending order', () => {
+    cy.get('.TickersList__sort-button:contains("Price")').click();
+
+    const tickerPrices = [];
+
+    cy.get('.TickerItem__price').each(($price) => {
+      tickerPrices.push(parseFloat($price.text()));
+    });
+
+    expect(tickerPrices).to.deep.equal(tickerPrices.sort((a, b) => a - b));
+  });
+
+  it('should sort tickers by price in descending order', () => {
+    cy.get('.TickersList__sort-button:contains("Price")').click().click(); 
+
+    const tickerPrices = [];
+
+    cy.get('.TickerItem__price').each(($price) => {
+      tickerPrices.push(parseFloat($price.text()));
+    });
+
+    expect(tickerPrices).to.deep.equal(tickerPrices.sort((a, b) => b - a));
+  });
 });

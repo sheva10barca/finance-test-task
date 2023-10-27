@@ -18,7 +18,7 @@
 ## Run the tests
 1. Open a new bash shell
 2. ```cd client```
-3. ```npm run test``` or ```yarn test```
+3. ```npm test``` or ```yarn test```
 
 # Price Service Usage
 
