@@ -1,5 +1,5 @@
 
-# Finance Test Task
+# Stock Market
 
 ## Running the local service
 1. Open a new bash shell
